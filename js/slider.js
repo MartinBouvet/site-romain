@@ -1,336 +1,123 @@
-/* ============================================
-   SLIDER.JS - Gestion des slides verticales
-   Scroll hijacking pour navigation fluide
-   ============================================ */
-
-// Variables pour le slider
-let isScrolling = false;
-const scrollDelay = 800; // Délai entre chaque slide (ms)
-
 // ============================================
-// INITIALISATION DU SLIDER
+// SLIDER VERTICAL (Optionnel - pour scroll hijacking)
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    initVerticalSlider();
-});
+// Note: Le site est actuellement en scroll normal.
+// Ce fichier peut être utilisé pour réactiver le scroll hijacking si besoin.
 
-function initVerticalSlider() {
-    // Désactiver le scroll normal
-    disableScroll();
+document.addEventListener('DOMContentLoaded', function() {
     
-    // Écouter la molette de la souris
-    window.addEventListener('wheel', handleWheel, { passive: false });
+    const slidesContainer = document.getElementById('slidesContainer');
+    const slides = document.querySelectorAll('.slide');
     
-    // Écouter les touches du clavier
-    window.addEventListener('keydown', handleKeyboard);
+    let currentSlide = 0;
+    let isScrolling = false;
     
-    // Écouter les touches tactiles (mobile)
-    let touchStartY = 0;
-    let touchEndY = 0;
+    // Configuration: false = scroll normal, true = scroll hijacking
+    const enableScrollHijacking = false;
     
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    
-    document.addEventListener('touchend', (e) => {
-        touchEndY = e.changedTouches[0].clientY;
-        handleSwipe(touchStartY, touchEndY);
-    }, { passive: true });
-    
-    console.log('✅ Slider vertical initialisé');
-}
-
-// ============================================
-// GESTION DU SCROLL À LA MOLETTE
-// ============================================
-
-function handleWheel(e) {
-    e.preventDefault();
-    
-    if (isScrolling) return;
-    
-    const delta = Math.sign(e.deltaY);
-    
-    if (delta > 0) {
-        // Scroll vers le bas - slide suivante
-        nextSlide();
-    } else {
-        // Scroll vers le haut - slide précédente
-        prevSlide();
-    }
-}
-
-// ============================================
-// GESTION DES TOUCHES CLAVIER
-// ============================================
-
-function handleKeyboard(e) {
-    if (isScrolling) return;
-    
-    // Ignorer si on est dans un input
-    if (e.target.tagName === 'INPUT' || 
-        e.target.tagName === 'TEXTAREA' || 
-        e.target.tagName === 'SELECT') {
+    if (!enableScrollHijacking) {
+        console.log('Scroll normal activé');
         return;
     }
     
-    switch(e.key) {
-        case 'ArrowDown':
-        case 'PageDown':
-        case ' ': // Espace
-            e.preventDefault();
-            nextSlide();
-            break;
-            
-        case 'ArrowUp':
-        case 'PageUp':
-            e.preventDefault();
-            prevSlide();
-            break;
-            
-        case 'Home':
-            e.preventDefault();
-            goToSlide(0);
-            break;
-            
-        case 'End':
-            e.preventDefault();
-            const slides = document.querySelectorAll('.slide');
-            goToSlide(slides.length - 1);
-            break;
-    }
-}
-
-// ============================================
-// GESTION DES SWIPES (TACTILE)
-// ============================================
-
-function handleSwipe(startY, endY) {
-    if (isScrolling) return;
+    // ============================================
+    // SCROLL HIJACKING (désactivé par défaut)
+    // ============================================
     
-    const minSwipeDistance = 50; // Distance minimale pour déclencher un swipe
-    const diff = startY - endY;
-    
-    if (Math.abs(diff) > minSwipeDistance) {
-        if (diff > 0) {
-            // Swipe vers le haut - slide suivante
-            nextSlide();
-        } else {
-            // Swipe vers le bas - slide précédente
-            prevSlide();
-        }
-    }
-}
-
-// ============================================
-// NAVIGATION ENTRE LES SLIDES
-// ============================================
-
-function nextSlide() {
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    
-    if (window.currentSlide < totalSlides - 1) {
-        setScrolling(true);
-        goToSlide(window.currentSlide + 1);
+    function goToSlide(index) {
+        if (index < 0 || index >= slides.length) return;
+        if (isScrolling) return;
+        
+        isScrolling = true;
+        currentSlide = index;
+        
+        const offset = -currentSlide * window.innerHeight;
+        slidesContainer.style.transform = `translateY(${offset}px)`;
+        
+        updateNavigation();
         
         setTimeout(() => {
-            setScrolling(false);
-        }, scrollDelay);
-    }
-}
-
-function prevSlide() {
-    if (window.currentSlide > 0) {
-        setScrolling(true);
-        goToSlide(window.currentSlide - 1);
-        
-        setTimeout(() => {
-            setScrolling(false);
-        }, scrollDelay);
-    }
-}
-
-function setScrolling(value) {
-    isScrolling = value;
-}
-
-// ============================================
-// DÉSACTIVER LE SCROLL NORMAL
-// ============================================
-
-function disableScroll() {
-    // Méthode 1: overflow hidden sur body
-    document.body.style.overflow = 'hidden';
-    
-    // Méthode 2: empêcher le comportement par défaut
-    window.addEventListener('scroll', preventDefault, { passive: false });
-    window.addEventListener('touchmove', preventDefault, { passive: false });
-}
-
-function enableScroll() {
-    document.body.style.overflow = 'auto';
-    window.removeEventListener('scroll', preventDefault);
-    window.removeEventListener('touchmove', preventDefault);
-}
-
-function preventDefault(e) {
-    e.preventDefault();
-}
-
-// ============================================
-// NAVIGATION PAR NUMÉRO DE SLIDE
-// ============================================
-
-// Fonction pour aller directement à une slide (utilisée par les boutons)
-// Cette fonction est déjà définie dans main.js et exportée globalement
-
-// ============================================
-// SMOOTH SCROLL POUR LES SECTIONS INTERNES
-// ============================================
-
-// Pour les slides qui ont du contenu scrollable (comme la modal)
-// On peut activer un scroll normal dans ces zones
-
-function enableScrollInElement(element) {
-    if (!element) return;
-    
-    element.addEventListener('wheel', (e) => {
-        e.stopPropagation(); // Empêcher la propagation au slider
-    }, { passive: true });
-    
-    element.addEventListener('touchmove', (e) => {
-        e.stopPropagation(); // Empêcher la propagation au slider
-    }, { passive: true });
-}
-
-// Appliquer le scroll interne aux modales
-document.addEventListener('DOMContentLoaded', () => {
-    const modalContents = document.querySelectorAll('.modal-content');
-    modalContents.forEach(modal => {
-        enableScrollInElement(modal);
-    });
-    
-    // Appliquer aussi au formulaire de contact si besoin
-    const contactForm = document.querySelector('.contact-form');
-    enableScrollInElement(contactForm);
-});
-
-// ============================================
-// INDICATEUR DE PROGRESSION (optionnel)
-// ============================================
-
-function updateProgressIndicator() {
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    const progress = ((window.currentSlide + 1) / totalSlides) * 100;
-    
-    // Si on a un indicateur de progression dans le DOM
-    const progressBar = document.querySelector('.progress-bar');
-    if (progressBar) {
-        progressBar.style.width = `${progress}%`;
+            isScrolling = false;
+        }, 1000);
     }
     
-    // Mettre à jour un compteur de slides si présent
-    const slideCounter = document.querySelector('.slide-counter');
-    if (slideCounter) {
-        slideCounter.textContent = `${window.currentSlide + 1} / ${totalSlides}`;
-    }
-}
-
-// Appeler cette fonction à chaque changement de slide
-// (peut être intégré dans goToSlide() de main.js)
-
-// ============================================
-// DÉTECTION DE CHANGEMENT D'ORIENTATION
-// ============================================
-
-window.addEventListener('orientationchange', () => {
-    // Réinitialiser la position après un changement d'orientation
-    setTimeout(() => {
-        goToSlide(window.currentSlide);
-    }, 200);
-});
-
-// ============================================
-// GESTION DU RESIZE
-// ============================================
-
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        // Recalculer la position après resize
-        goToSlide(window.currentSlide);
-    }, 200);
-});
-
-// ============================================
-// PRÉCHARGEMENT DES SLIDES
-// ============================================
-
-function preloadSlides() {
-    const slides = document.querySelectorAll('.slide');
-    
-    slides.forEach((slide, index) => {
-        // Précharger les vidéos
-        const video = slide.querySelector('video');
-        if (video) {
-            video.load();
-        }
-        
-        // Précharger les images
-        const images = slide.querySelectorAll('img[data-src]');
-        images.forEach(img => {
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
+    function updateNavigation() {
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach((link, index) => {
+            if (index === currentSlide) {
+                link.style.opacity = '1';
+            } else {
+                link.style.opacity = '0.6';
             }
         });
-    });
-}
-
-// Lancer le préchargement après l'initialisation
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(preloadSlides, 1000);
-});
-
-// ============================================
-// NAVIGATION PAR HASH URL (optionnel)
-// ============================================
-
-// Permet de naviguer vers une slide via l'URL: #formules, #contact, etc.
-function initHashNavigation() {
-    // Écouter les changements de hash
-    window.addEventListener('hashchange', handleHashChange);
-    
-    // Gérer le hash au chargement
-    handleHashChange();
-}
-
-function handleHashChange() {
-    const hash = window.location.hash.slice(1); // Enlever le #
-    
-    if (!hash) return;
-    
-    // Mapper les hash aux index de slides
-    const slideMap = {
-        'intro': 0,
-        'almanarre': 1,
-        'formules': 2,
-        'proximite': 3,
-        'contact': 4
-    };
-    
-    const slideIndex = slideMap[hash];
-    
-    if (slideIndex !== undefined) {
-        goToSlide(slideIndex);
     }
-}
-
-// Activer la navigation par hash (optionnel)
-// document.addEventListener('DOMContentLoaded', initHashNavigation);
-
-console.log('✅ Slider.js chargé');
+    
+    // Wheel event
+    window.addEventListener('wheel', function(e) {
+        if (!enableScrollHijacking) return;
+        
+        e.preventDefault();
+        
+        if (e.deltaY > 0) {
+            // Scroll down
+            goToSlide(currentSlide + 1);
+        } else {
+            // Scroll up
+            goToSlide(currentSlide - 1);
+        }
+    }, { passive: false });
+    
+    // Touch events
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    window.addEventListener('touchstart', function(e) {
+        if (!enableScrollHijacking) return;
+        touchStartY = e.touches[0].clientY;
+    });
+    
+    window.addEventListener('touchend', function(e) {
+        if (!enableScrollHijacking) return;
+        
+        touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                // Swipe up
+                goToSlide(currentSlide + 1);
+            } else {
+                // Swipe down
+                goToSlide(currentSlide - 1);
+            }
+        }
+    });
+    
+    // Keyboard navigation
+    window.addEventListener('keydown', function(e) {
+        if (!enableScrollHijacking) return;
+        
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+            e.preventDefault();
+            goToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            goToSlide(currentSlide - 1);
+        }
+    });
+    
+    // Navigation links
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+            if (!enableScrollHijacking) return;
+            
+            e.preventDefault();
+            goToSlide(index);
+        });
+    });
+    
+    // Initialize
+    updateNavigation();
+});

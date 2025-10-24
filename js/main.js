@@ -1,366 +1,225 @@
-/* ============================================
-   MAIN.JS - Script principal
-   Gestion globale du site et initialisation
-   ============================================ */
-
-// Variables globales
-window.currentSlide = 0;
-
 // ============================================
-// INITIALISATION AU CHARGEMENT
+// SCRIPT PRINCIPAL
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Experience Kite & Wing Retreats - Initialisation...');
+document.addEventListener('DOMContentLoaded', function() {
     
-    // Loader d'entrée (style Dynovate)
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) {
+    // ============================================
+    // LOADER
+    // ============================================
+    
+    const loader = document.getElementById('loader');
+    
+    window.addEventListener('load', function() {
+        setTimeout(() => {
             loader.classList.add('hidden');
-            // Supprimer du DOM après la transition
-            setTimeout(() => {
-                loader.remove();
-            }, 800);
-        }
-    }, 2000); // Afficher le loader pendant 2 secondes
-
-    // Initialiser le header
-    initHeader();
-
-    // Initialiser la navigation
-    initNavigation();
-
-    // Initialiser les modales
-    initModals();
-
-    // Charger les données des séjours
-    loadRetreatsData();
-
-    // Initialiser le scroll indicator
-    initScrollIndicator();
-
-    // Activer la première slide
-    activateSlide(0);
-
-    console.log('✅ Initialisation terminée');
-});
-
-// ============================================
-// GESTION DU HEADER
-// ============================================
-
-function initHeader() {
+        }, 1500);
+    });
+    
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // ============================================
+    
     const header = document.getElementById('header');
     
-    // Effet de scroll sur le header
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
     });
-
-    // Note: Le scroll est désactivé dans ce site (scroll hijacking)
-    // mais on garde cette fonction pour le cas où on aurait besoin
-    // d'un scroll normal sur certaines sections
-}
-
-// ============================================
-// NAVIGATION DANS LE HEADER
-// ============================================
-
-function initNavigation() {
-    const navLinks = document.querySelectorAll('.nav a[data-slide]');
+    
+    // ============================================
+    // SMOOTH SCROLL NAVIGATION
+    // ============================================
+    
+    const navLinks = document.querySelectorAll('.nav a');
     
     navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const slideIndex = parseInt(link.dataset.slide);
-            goToSlide(slideIndex);
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
             
-            // Mettre à jour l'état actif
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-        });
-    });
-    
-    // Navigation par les dots
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const slideIndex = parseInt(dot.dataset.slide);
-            goToSlide(slideIndex);
-        });
-    });
-}
-
-// ============================================
-// GESTION DES MODALES
-// ============================================
-
-function initModals() {
-    // Boutons qui ouvrent les modales
-    const modalTriggers = document.querySelectorAll('[data-modal]');
-    
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const modalId = trigger.dataset.modal;
-            openModal(`modal${capitalize(modalId)}`);
-        });
-    });
-
-    // Fermeture des modales
-    const closeButtons = document.querySelectorAll('[data-close-modal]');
-    
-    closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            closeAllModals();
-        });
-    });
-
-    // Fermeture avec Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeAllModals();
-        }
-    });
-
-    // Boutons qui scrollent vers le contact
-    const contactTriggers = document.querySelectorAll('[data-contact="true"]');
-    
-    contactTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            closeAllModals();
-            goToSlide(4); // Slide contact
-        });
-    });
-}
-
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloquer le scroll
-    }
-}
-
-function closeAllModals() {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        modal.classList.remove('active');
-    });
-    document.body.style.overflow = 'hidden'; // Rester en overflow hidden (pour le slider)
-}
-
-// ============================================
-// CHARGEMENT DES DONNÉES DES SÉJOURS
-// ============================================
-
-async function loadRetreatsData() {
-    try {
-        const response = await fetch('data/retreats.json');
-        if (!response.ok) {
-            throw new Error('Erreur lors du chargement des données');
-        }
-        
-        const data = await response.json();
-        
-        // Injecter les dates dans la modal
-        if (data.dates && data.dates.length > 0) {
-            const datesContainer = document.getElementById('datesContainer');
-            if (datesContainer) {
-                datesContainer.innerHTML = data.dates.map(date => `
-                    <div class="date-item ${date.available ? '' : 'unavailable'}">
-                        <div class="date-text">${date.start} - ${date.end}</div>
-                        ${date.available ? 
-                            '<div class="date-status">Disponible</div>' : 
-                            '<div class="date-status">Complet</div>'
-                        }
-                    </div>
-                `).join('');
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
+        });
+    });
+    
+    // ============================================
+    // LANGUAGE SWITCHER
+    // ============================================
+    
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Retirer active de tous les boutons
+            langButtons.forEach(b => b.classList.remove('active'));
+            
+            // Ajouter active au bouton cliqué
+            this.classList.add('active');
+            
+            const lang = this.getAttribute('data-lang');
+            
+            // Pour l'instant, juste afficher la langue sélectionnée
+            // Tu peux ajouter la traduction plus tard
+            if (lang === 'en') {
+                // Optionnel : Rediriger vers une version anglaise
+                // window.location.href = 'index-en.html';
+                console.log('English version - Coming soon!');
+                alert('English version coming soon! 🇬🇧');
+            } else {
+                console.log('Version française');
+            }
+        });
+    });
+    
+    // ============================================
+    // MODAL DÉTAILS SÉJOUR
+    // ============================================
+    
+    const modal = document.getElementById('modal');
+    const closeBtn = document.querySelector('.close');
+    const detailButtons = document.querySelectorAll('.btn-details');
+    
+    detailButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const formule = this.getAttribute('data-formule');
+            openModal(formule);
+        });
+    });
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    }
+    
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
         }
+    });
+    
+    function openModal(formule) {
+        const modalBody = document.getElementById('modal-body');
         
-        console.log('✅ Données des séjours chargées');
+        let content = '';
         
-    } catch (error) {
-        console.error('❌ Erreur de chargement des données:', error);
-        
-        // Afficher un message d'erreur dans le container
-        const datesContainer = document.getElementById('datesContainer');
-        if (datesContainer) {
-            datesContainer.innerHTML = `
-                <p style="text-align: center; color: rgba(255,255,255,0.6);">
-                    Les dates seront bientôt disponibles.<br>
-                    Contactez-nous pour plus d'informations.
-                </p>
+        if (formule === 'premium') {
+            content = `
+                <h2>Séjour Premium</h2>
+                <h3>Une semaine d'exception tout compris</h3>
+                
+                <div class="modal-section">
+                    <h4>🏡 Hébergement de luxe</h4>
+                    <p>Villa privée avec vue panoramique sur la baie de L'Almanarre. 
+                    Chambres spacieuses, terrasse avec piscine, espace détente.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>👨‍🍳 Gastronomie</h4>
+                    <p>Chef privé à domicile préparant des repas gastronomiques 
+                    avec des produits locaux et de saison. Tous les repas inclus.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>🏄 Sports de glisse</h4>
+                    <p>Navigation en autonomie illimitée sur le spot. 
+                    Coaching personnalisé kite et wing par des moniteurs diplômés.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>🧘 Bien-être & développement</h4>
+                    <p>3 séances de yoga face à la mer, coaching en développement personnel, 
+                    demi-journée au SPA de luxe.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>🚴 Découvertes</h4>
+                    <p>Journée vélo à Porquerolles, randonnées dans les plus beaux sentiers 
+                    de la région, moments de partage en groupe.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>📸 Souvenirs</h4>
+                    <p>Photographe professionnel pour immortaliser vos meilleurs moments.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>✈️ Logistique</h4>
+                    <p>Prise en charge complète dès votre arrivée à l'aéroport de Hyères. 
+                    Tous les transports sur zone inclus.</p>
+                </div>
+                
+                <div class="modal-pricing">
+                    <p class="price-from">À partir de <strong>2 890€</strong> / personne</p>
+                    <p class="price-note">Prix final selon la date choisie</p>
+                </div>
+                
+                <a href="#contact" class="btn-reserve" onclick="document.getElementById('modal').style.display='none'">
+                    Je réserve mon séjour
+                </a>
             `;
         }
-    }
-}
-
-// ============================================
-// GESTION DU SCROLL INDICATOR
-// ============================================
-
-function initScrollIndicator() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            goToSlide(window.currentSlide + 1);
-        });
-    }
-}
-
-// ============================================
-// FONCTION POUR ALLER À UNE SLIDE SPÉCIFIQUE
-// ============================================
-
-function goToSlide(index) {
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    
-    // Vérifier les limites
-    if (index < 0 || index >= totalSlides) {
-        return;
+        
+        modalBody.innerHTML = content;
+        modal.style.display = 'block';
     }
     
-    // Mettre à jour l'index
-    window.currentSlide = index;
+    // ============================================
+    // ANIMATIONS ON SCROLL
+    // ============================================
     
-    // Appliquer la transformation
-    const slidesContainer = document.getElementById('slidesContainer');
-    slidesContainer.style.transform = `translateY(-${window.currentSlide * 100}vh)`;
-    
-    // Activer la slide
-    activateSlide(index);
-    
-    // Masquer le scroll indicator sur la dernière slide
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        if (window.currentSlide === totalSlides - 1) {
-            scrollIndicator.style.opacity = '0';
-            scrollIndicator.style.pointerEvents = 'none';
-        } else {
-            scrollIndicator.style.opacity = '1';
-            scrollIndicator.style.pointerEvents = 'auto';
-        }
-    }
-    
-    // Mettre à jour la navigation active
-    updateActiveNav(index);
-}
-
-// ============================================
-// ACTIVER UNE SLIDE (pour les animations)
-// ============================================
-
-function activateSlide(index) {
-    const slides = document.querySelectorAll('.slide');
-    
-    slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.classList.add('active');
-        } else {
-            slide.classList.remove('active');
-        }
-    });
-}
-
-// ============================================
-// METTRE À JOUR LA NAVIGATION ACTIVE
-// ============================================
-
-function updateActiveNav(index) {
-    const navLinks = document.querySelectorAll('.nav a[data-slide]');
-    
-    navLinks.forEach(link => {
-        const slideIndex = parseInt(link.dataset.slide);
-        if (slideIndex === index) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-    
-    // Mettre à jour les dots
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => {
-        const slideIndex = parseInt(dot.dataset.slide);
-        if (slideIndex === index) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-// ============================================
-// UTILITAIRES
-// ============================================
-
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-// Fonction de debounce pour optimiser les performances
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
     };
-}
-
-// ============================================
-// MESSAGES DE SUCCÈS/ERREUR
-// ============================================
-
-function showMessage(message, type = 'success') {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message-alert message-${type}`;
-    messageDiv.style.cssText = `
-        position: fixed;
-        top: 100px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: ${type === 'success' ? 'rgba(46, 204, 113, 0.95)' : 'rgba(231, 76, 60, 0.95)'};
-        color: white;
-        padding: 20px 40px;
-        border-radius: 10px;
-        font-weight: 500;
-        z-index: 10001;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        backdrop-filter: blur(10px);
-    `;
-    messageDiv.textContent = message;
     
-    document.body.appendChild(messageDiv);
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
     
-    // Retirer après 4 secondes
-    setTimeout(() => {
-        messageDiv.classList.add('hiding');
-        setTimeout(() => {
-            messageDiv.remove();
-        }, 400);
-    }, 4000);
-}
-
-// ============================================
-// EXPORT DES FONCTIONS GLOBALES
-// ============================================
-
-// Rendre certaines fonctions accessibles globalement
-window.goToSlide = goToSlide;
-window.showMessage = showMessage;
-window.openModal = openModal;
-window.closeAllModals = closeAllModals;
-
-console.log('✅ Main.js chargé');
+    const animatedElements = document.querySelectorAll('.formule-card, .airport-card');
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(50px)';
+        el.style.transition = 'all 0.8s ease';
+        observer.observe(el);
+    });
+    
+    // ============================================
+    // VIDEO AUTOPLAY FIX (iOS Safari)
+    // ============================================
+    
+    const videos = document.querySelectorAll('video');
+    
+    videos.forEach(video => {
+        video.addEventListener('loadedmetadata', function() {
+            this.play().catch(err => {
+                console.log('Autoplay prevented:', err);
+            });
+        });
+    });
+    
+    // Force play on user interaction (pour mobile)
+    document.addEventListener('touchstart', function() {
+        videos.forEach(video => {
+            if (video.paused) {
+                video.play().catch(err => console.log('Play error:', err));
+            }
+        });
+    }, { once: true });
+});
