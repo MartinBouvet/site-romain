@@ -1,0 +1,373 @@
+/* ============================================
+   CORRECTIONS RESPONSIVE - Site scrollable normal
+   ============================================ */
+
+/* SUPPRIMER le système de slides - Site normal scrollable */
+.slides-container {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Sections normales (plus de slides fixes) */
+.slide {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    padding: 100px 0 !important;
+}
+
+/* Section intro prend toute la hauteur */
+.slide-intro {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    padding: 0 !important;
+}
+
+/* Contenu des sections */
+.slide-content {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 1200px !important;
+    width: 100% !important;
+    padding: 40px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Ajustements pour sections avec header compact */
+.slide-almanarre,
+.slide-formules,
+.slide-map,
+.slide-contact {
+    padding-top: 180px !important;
+    padding-bottom: 80px !important;
+}
+
+.slide-intro .slide-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+}
+
+/* Masquer l'indicateur de scroll (plus nécessaire) */
+.scroll-indicator {
+    display: none !important;
+}
+
+/* Masquer les dots de navigation (plus nécessaire) */
+.slide-dots {
+    display: none !important;
+}
+
+/* Body - scroll normal */
+body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scroll-behavior: smooth !important;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* LOGO GRAND - mais header compact */
+.logo img {
+    width: 140px !important;
+    height: 140px !important;
+    object-fit: contain !important;
+}
+
+/* Header très compact */
+.header {
+    padding: 10px 0 !important;
+}
+
+/* TITRES - Tailles fluides et responsives */
+.section-title {
+    font-size: clamp(28px, 4vw, 48px) !important;
+    margin-bottom: 15px !important;
+    line-height: 1.2 !important;
+}
+
+.section-subtitle {
+    font-size: clamp(14px, 2vw, 20px) !important;
+    margin-bottom: 25px !important;
+    line-height: 1.4 !important;
+}
+
+/* CARTE - Visible et responsive */
+.map-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 30px auto 20px !important;
+    background: rgba(10, 37, 64, 0.8) !important;
+    border: 2px solid rgba(212, 175, 55, 0.6) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    min-height: 350px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+#europeMapImage {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 350px !important;
+    object-fit: contain !important;
+    opacity: 0.5 !important;
+    display: block !important;
+}
+
+#europeMap {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+
+/* CITIES LIST - Masquée (inutile) */
+.cities-list {
+    display: none !important;
+}
+
+/* FORMULES - Responsive */
+.formules-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 25px !important;
+    margin-top: 40px !important;
+}
+
+.formule-card {
+    padding: 25px !important;
+}
+
+/* CONTACT - Responsive et compact */
+.contact-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+    margin-top: 30px !important;
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.contact-form {
+    padding: 25px !important;
+}
+
+.form-row {
+    gap: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.form-group {
+    margin-bottom: 15px !important;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+}
+
+.form-group textarea {
+    min-height: 100px !important;
+    max-height: 150px !important;
+}
+
+.submit-btn {
+    padding: 12px 40px !important;
+    margin-top: 15px !important;
+}
+
+.contact-info {
+    padding: 25px !important;
+}
+
+.info-item {
+    margin-bottom: 20px !important;
+}
+
+/* Footer dans le formulaire plus compact */
+.slide-contact footer {
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+}
+
+/* RESPONSIVE - MOBILE */
+@media screen and (max-width: 768px) {
+    .slide-content {
+        padding: 100px 20px 40px 20px !important;
+    }
+    
+    .slide-intro .slide-content {
+        padding: 40px 20px !important;
+    }
+    
+    .slide-almanarre .slide-content,
+    .slide-formules .slide-content,
+    .slide-map .slide-content,
+    .slide-contact .slide-content {
+        padding-top: 120px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .section-title {
+        font-size: clamp(22px, 5vw, 32px) !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .section-subtitle {
+        font-size: clamp(12px, 3vw, 16px) !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .map-container {
+        padding: 15px !important;
+        min-height: 250px !important;
+        margin: 20px auto 15px !important;
+    }
+    
+    #europeMapImage {
+        max-height: 250px !important;
+    }
+    
+    .cities-list {
+        gap: 6px !important;
+        margin-top: 15px !important;
+    }
+    
+    .city {
+        padding: 5px 10px !important;
+        font-size: 10px !important;
+    }
+    
+    .formules-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .contact-container {
+        gap: 20px !important;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+    }
+    
+    .form-group textarea {
+        min-height: 80px !important;
+    }
+    
+    .submit-btn {
+        width: 100% !important;
+        padding: 12px 20px !important;
+    }
+}
+
+/* RESPONSIVE - TRÈS PETIT ÉCRAN */
+@media screen and (max-width: 480px) {
+    .slide-content {
+        padding: 100px 15px 30px 15px !important;
+    }
+    
+    .slide-intro .slide-content {
+        padding: 40px 15px !important;
+    }
+    
+    .section-title {
+        font-size: clamp(20px, 7vw, 28px) !important;
+    }
+    
+    .section-subtitle {
+        font-size: clamp(11px, 3.5vw, 14px) !important;
+    }
+    
+    .map-container {
+        margin: 20px auto 15px !important;
+        padding: 10px !important;
+    }
+    
+    #europeMapImage {
+        max-height: 200px !important;
+    }
+    
+    .city {
+        padding: 4px 8px !important;
+        font-size: 9px !important;
+    }
+    
+    .formule-card {
+        padding: 20px !important;
+    }
+    
+    .contact-form {
+        padding: 20px !important;
+    }
+}
+
+/* RESPONSIVE - TABLETTE PAYSAGE */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .section-title {
+        font-size: clamp(32px, 4vw, 42px) !important;
+    }
+    
+    .formules-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* RESPONSIVE - GRAND ÉCRAN */
+@media screen and (min-width: 1920px) {
+    .section-title {
+        font-size: 52px !important;
+    }
+    
+    .section-subtitle {
+        font-size: 22px !important;
+    }
+}
+
+/* VIDÉO BACKGROUND & OVERLAY */
+.video-background {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+.overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    z-index: 1 !important;
+}
+
+.overlay-dark {
+    background: rgba(0, 0, 0, 0.6) !important;
+}

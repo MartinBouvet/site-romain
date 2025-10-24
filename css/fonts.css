@@ -1,0 +1,215 @@
+/* ============================================
+   CUSTOM FONTS
+   ============================================ */
+
+/* Ce fichier est préparé pour ajouter des polices personnalisées
+   si nécessaire dans le futur.
+   
+   Pour l'instant, les polices sont chargées depuis Google Fonts :
+   - Cormorant Garamond (titres, style serif élégant)
+   - Montserrat (texte, style sans-serif moderne)
+*/
+
+/* ============================================
+   EXEMPLE D'IMPORT DE POLICE LOCALE
+   ============================================ */
+
+/*
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../assets/fonts/CustomFont-Regular.woff2') format('woff2'),
+         url('../assets/fonts/CustomFont-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../assets/fonts/CustomFont-Bold.woff2') format('woff2'),
+         url('../assets/fonts/CustomFont-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+*/
+
+/* ============================================
+   CLASSES UTILITAIRES POUR LES POLICES
+   ============================================ */
+
+   .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.font-sans {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Poids de police */
+.font-light {
+    font-weight: 300;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* Tailles de texte utilitaires */
+.text-xs {
+    font-size: 12px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-base {
+    font-size: 16px;
+}
+
+.text-lg {
+    font-size: 18px;
+}
+
+.text-xl {
+    font-size: 20px;
+}
+
+.text-2xl {
+    font-size: 24px;
+}
+
+.text-3xl {
+    font-size: 30px;
+}
+
+.text-4xl {
+    font-size: 36px;
+}
+
+/* Espacement des lettres */
+.tracking-tight {
+    letter-spacing: -0.05em;
+}
+
+.tracking-normal {
+    letter-spacing: 0;
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.1em;
+}
+
+.tracking-widest {
+    letter-spacing: 0.15em;
+}
+
+/* Hauteur de ligne */
+.leading-tight {
+    line-height: 1.25;
+}
+
+.leading-normal {
+    line-height: 1.5;
+}
+
+.leading-relaxed {
+    line-height: 1.75;
+}
+
+.leading-loose {
+    line-height: 2;
+}
+
+/* Transformations de texte */
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Style de police */
+.italic {
+    font-style: italic;
+}
+
+.not-italic {
+    font-style: normal;
+}
+
+/* Alignement */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* ============================================
+   RESPONSIVE FONT SIZES (Fluid Typography)
+   ============================================ */
+
+/* Système de tailles fluides pour une meilleure adaptation */
+.fluid-text-sm {
+    font-size: clamp(12px, 1.5vw, 14px);
+}
+
+.fluid-text-base {
+    font-size: clamp(14px, 2vw, 16px);
+}
+
+.fluid-text-lg {
+    font-size: clamp(16px, 2.5vw, 20px);
+}
+
+.fluid-text-xl {
+    font-size: clamp(20px, 3vw, 28px);
+}
+
+.fluid-text-2xl {
+    font-size: clamp(24px, 4vw, 36px);
+}
+
+.fluid-text-3xl {
+    font-size: clamp(32px, 6vw, 48px);
+}
+
+.fluid-text-4xl {
+    font-size: clamp(40px, 8vw, 64px);
+}
+
+.fluid-text-5xl {
+    font-size: clamp(48px, 10vw, 80px);
+}

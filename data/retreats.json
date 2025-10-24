@@ -1,0 +1,127 @@
+{
+    "dates": [
+      {
+        "id": 1,
+        "start": "15 mars 2025",
+        "end": "22 mars 2025",
+        "available": true,
+        "price": 2490
+      },
+      {
+        "id": 2,
+        "start": "5 avril 2025",
+        "end": "12 avril 2025",
+        "available": true,
+        "price": 2490
+      },
+      {
+        "id": 3,
+        "start": "20 avril 2025",
+        "end": "27 avril 2025",
+        "available": false,
+        "price": 2490
+      },
+      {
+        "id": 4,
+        "start": "10 mai 2025",
+        "end": "17 mai 2025",
+        "available": true,
+        "price": 2690
+      },
+      {
+        "id": 5,
+        "start": "25 mai 2025",
+        "end": "1 juin 2025",
+        "available": true,
+        "price": 2690
+      },
+      {
+        "id": 6,
+        "start": "15 juin 2025",
+        "end": "22 juin 2025",
+        "available": true,
+        "price": 2890
+      },
+      {
+        "id": 7,
+        "start": "1 juillet 2025",
+        "end": "8 juillet 2025",
+        "available": false,
+        "price": 2890
+      },
+      {
+        "id": 8,
+        "start": "20 juillet 2025",
+        "end": "27 juillet 2025",
+        "available": false,
+        "price": 2890
+      },
+      {
+        "id": 9,
+        "start": "10 août 2025",
+        "end": "17 août 2025",
+        "available": true,
+        "price": 2890
+      },
+      {
+        "id": 10,
+        "start": "1 septembre 2025",
+        "end": "8 septembre 2025",
+        "available": true,
+        "price": 2690
+      },
+      {
+        "id": 11,
+        "start": "20 septembre 2025",
+        "end": "27 septembre 2025",
+        "available": true,
+        "price": 2690
+      },
+      {
+        "id": 12,
+        "start": "10 octobre 2025",
+        "end": "17 octobre 2025",
+        "available": true,
+        "price": 2490
+      }
+    ],
+    "included": [
+      "Hébergement en villa luxueuse avec vue mer",
+      "Prise en charge complète dès votre arrivée (aéroport/gare Hyères)",
+      "Chef à domicile pour tous les repas",
+      "Navigation en autonomie avec matériel mis à disposition",
+      "Coaching personnalisé kitesurf & wingfoil",
+      "3 sessions de yoga",
+      "Coaching développement personnel",
+      "Demi-journée relaxation SPA",
+      "Journée vélo à Porquerolles",
+      "Randonnées dans les plus beaux spots de la région",
+      "Photographe professionnel",
+      "Logistique complète sur zone"
+    ],
+    "options": [
+      {
+        "name": "Cours supplémentaires de kite/wing",
+        "price": "À partir de 60€/h",
+        "description": "Tarifs préférentiels pour les participants"
+      },
+      {
+        "name": "Location de matériel",
+        "price": "Sur demande",
+        "description": "Pack complet ou éléments isolés"
+      },
+      {
+        "name": "Séances ostéopathe",
+        "price": "80€/séance",
+        "description": "Pour récupérer après vos sessions"
+      }
+    ],
+    "info": {
+      "max_participants": 12,
+      "min_participants": 6,
+      "languages": ["Français", "English"],
+      "difficulty_levels": ["Débutant", "Intermédiaire", "Avancé", "Expert"],
+      "check_in": "14:00",
+      "check_out": "11:00"
+    }
+  }

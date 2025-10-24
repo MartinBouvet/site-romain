@@ -1,0 +1,200 @@
+{
+    "fr": {
+      "intro": {
+        "title": "EXPERIENCE",
+        "subtitle": "KITE & WING RETREATS",
+        "slogan": "Where the Sea Meets the Soul"
+      },
+      "scroll": "Scroll",
+      "almanarre": {
+        "title": "Le Hawaï du Vent",
+        "subtitle": "Plus de 200 jours de vent par an",
+        "description": "L'Almanarre, située sur la presqu'île de Giens, est l'un des spots de kitesurf et wingfoil les plus réputés d'Europe. Avec son vent thermique constant, ses eaux turquoise et son cadre paradisiaque, c'est le lieu idéal pour vivre une expérience inoubliable entre sport et détente."
+      },
+      "formules": {
+        "title": "Nos Formules",
+        "premium": {
+          "title": "Séjour Premium",
+          "subtitle": "Une semaine d'exception",
+          "feature1": "Villa luxueuse avec vue mer",
+          "feature2": "Chef à domicile",
+          "feature3": "Coaching kite & wingfoil",
+          "feature4": "Sessions yoga",
+          "feature5": "Relaxation SPA",
+          "feature6": "Excursions vélo & rando",
+          "max": "Max. 12 personnes",
+          "btn": "En savoir +"
+        },
+        "privatisation": {
+          "title": "Privatisation",
+          "subtitle": "Groupes & Séminaires",
+          "description": "Créez votre expérience sur-mesure pour votre groupe ou votre entreprise. Team building, séminaire incentive, ou simplement entre amis : nous personnalisons chaque détail selon vos envies.",
+          "devis": "Sur devis personnalisé",
+          "btn": "Demander un devis"
+        }
+      },
+      "map": {
+        "title": "À Quelques Heures de Vol",
+        "subtitle": "Accessible depuis toute l'Europe"
+      },
+      "contact": {
+        "title": "Parlez-nous de Vous",
+        "subtitle": "Rejoignez l'expérience",
+        "form": {
+          "firstname": "Prénom",
+          "lastname": "Nom",
+          "email": "Email",
+          "phone": "Téléphone",
+          "level": "Niveau en kite/wing",
+          "level_select": "Sélectionnez...",
+          "level_beginner": "Débutant",
+          "level_intermediate": "Intermédiaire",
+          "level_advanced": "Avancé",
+          "level_expert": "Expert",
+          "message": "Message",
+          "rgpd": "J'accepte que mes données soient utilisées pour me recontacter",
+          "submit": "Envoyer"
+        }
+      },
+      "footer": {
+        "legal": "Mentions Légales",
+        "cgv": "CGV",
+        "privacy": "Politique de Confidentialité",
+        "copyright": "© 2025 Experience Kite & Wing Retreats - Tous droits réservés"
+      },
+      "modal": {
+        "premium": {
+          "title": "Séjour Premium",
+          "subtitle": "Une semaine tout compris dans un cadre d'exception",
+          "included": {
+            "title": "Ce qui est inclus",
+            "1": "Hébergement en villa luxueuse avec vue mer",
+            "2": "Prise en charge complète dès votre arrivée (aéroport/gare Hyères)",
+            "3": "Chef à domicile pour tous les repas",
+            "4": "Navigation en autonomie avec matériel mis à disposition",
+            "5": "Coaching personnalisé kitesurf & wingfoil",
+            "6": "3 sessions de yoga",
+            "7": "Coaching développement personnel",
+            "8": "Demi-journée relaxation SPA",
+            "9": "Journée vélo à Porquerolles",
+            "10": "Randonnées dans les plus beaux spots de la région",
+            "11": "Photographe professionnel",
+            "12": "Logistique complète sur zone"
+          },
+          "options": {
+            "title": "Options disponibles",
+            "1": "Cours supplémentaires de kite/wing (tarifs préférentiels)",
+            "2": "Location de matériel (pack ou élément isolé)",
+            "3": "Séances ostéopathe"
+          },
+          "price": {
+            "label": "À partir de",
+            "info": "par personne / semaine"
+          },
+          "dates": {
+            "title": "Dates disponibles"
+          },
+          "btn": "Réserver maintenant"
+        }
+      }
+    },
+    "en": {
+      "intro": {
+        "title": "EXPERIENCE",
+        "subtitle": "KITE & WING RETREATS",
+        "slogan": "Where the Sea Meets the Soul"
+      },
+      "scroll": "Scroll",
+      "almanarre": {
+        "title": "The Wind Paradise",
+        "subtitle": "Over 200 windy days per year",
+        "description": "L'Almanarre, located on the Giens peninsula, is one of Europe's most renowned kitesurfing and wingfoil spots. With its constant thermal wind, turquoise waters and paradise-like setting, it's the perfect place to experience an unforgettable blend of sport and relaxation."
+      },
+      "formules": {
+        "title": "Our Packages",
+        "premium": {
+          "title": "Premium Stay",
+          "subtitle": "An exceptional week",
+          "feature1": "Luxury villa with sea view",
+          "feature2": "Private chef",
+          "feature3": "Kite & wingfoil coaching",
+          "feature4": "Yoga sessions",
+          "feature5": "SPA relaxation",
+          "feature6": "Bike & hiking excursions",
+          "max": "Max. 12 people",
+          "btn": "Learn more"
+        },
+        "privatisation": {
+          "title": "Private Booking",
+          "subtitle": "Groups & Seminars",
+          "description": "Create your tailor-made experience for your group or company. Team building, incentive seminar, or simply with friends: we customize every detail according to your wishes.",
+          "devis": "Custom quote",
+          "btn": "Request a quote"
+        }
+      },
+      "map": {
+        "title": "Just Hours Away",
+        "subtitle": "Accessible from all over Europe"
+      },
+      "contact": {
+        "title": "Tell Us About You",
+        "subtitle": "Join the experience",
+        "form": {
+          "firstname": "First Name",
+          "lastname": "Last Name",
+          "email": "Email",
+          "phone": "Phone",
+          "level": "Kite/Wing Level",
+          "level_select": "Select...",
+          "level_beginner": "Beginner",
+          "level_intermediate": "Intermediate",
+          "level_advanced": "Advanced",
+          "level_expert": "Expert",
+          "message": "Message",
+          "rgpd": "I agree to my data being used to contact me",
+          "submit": "Send"
+        }
+      },
+      "footer": {
+        "legal": "Legal Notice",
+        "cgv": "Terms & Conditions",
+        "privacy": "Privacy Policy",
+        "copyright": "© 2025 Experience Kite & Wing Retreats - All rights reserved"
+      },
+      "modal": {
+        "premium": {
+          "title": "Premium Stay",
+          "subtitle": "An all-inclusive week in an exceptional setting",
+          "included": {
+            "title": "What's included",
+            "1": "Luxury villa accommodation with sea view",
+            "2": "Complete transfer from your arrival (Hyères airport/train station)",
+            "3": "Private chef for all meals",
+            "4": "Autonomous sailing with equipment provided",
+            "5": "Personalized kitesurfing & wingfoil coaching",
+            "6": "3 yoga sessions",
+            "7": "Personal development coaching",
+            "8": "Half-day SPA relaxation",
+            "9": "Bike day trip to Porquerolles",
+            "10": "Hiking in the region's most beautiful spots",
+            "11": "Professional photographer",
+            "12": "Complete on-site logistics"
+          },
+          "options": {
+            "title": "Available options",
+            "1": "Additional kite/wing lessons (preferential rates)",
+            "2": "Equipment rental (full pack or individual items)",
+            "3": "Osteopath sessions"
+          },
+          "price": {
+            "label": "From",
+            "info": "per person / week"
+          },
+          "dates": {
+            "title": "Available dates"
+          },
+          "btn": "Book now"
+        }
+      }
+    }
+  }

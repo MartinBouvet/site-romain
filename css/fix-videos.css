@@ -1,0 +1,38 @@
+/* ============================================
+   FIX VIDÉOS - Restaure l'affichage des vidéos
+   ============================================ */
+
+/* Restaurer l'affichage correct des vidéos en background */
+.video-background {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 0 !important;
+    object-fit: cover !important;
+}
+
+.overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    z-index: 1 !important;
+}
+
+.overlay-dark {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* S'assurer que les sections ont position relative pour contenir les vidéos */
+.slide-intro,
+.slide-almanarre,
+.slide-formules {
+    position: relative !important;
+}

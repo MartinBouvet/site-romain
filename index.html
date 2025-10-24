@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience Kite & Wing Retreats - Séjours premium à L'Almanarre, le Hawaï du vent">
+    <title>Experience - Kite & Wing Retreats</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/fixes.css">
+    <link rel="stylesheet" href="css/fix-videos.css">
+</head>
+<body>
+    
+    <!-- LOADER D'ENTRÉE (style Dynovate) -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <img src="assets/images/logo/frangipanier-logo.png" alt="Logo Frangipanier" class="loader-logo">
+        </div>
+    </div>
+
+    <!-- HEADER FIXE -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/images/logo/frangipanier-logo.png" alt="Experience Logo">
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#intro" data-slide="0">Accueil</a></li>
+                    <li><a href="#almanarre" data-slide="1">L'Almanarre</a></li>
+                    <li><a href="#formules" data-slide="2">Formules</a></li>
+                    <li><a href="#contact" data-slide="4">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-switch">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <span class="separator">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENEUR PRINCIPAL DES SLIDES -->
+    <main class="slides-container" id="slidesContainer">
+        
+        <!-- ============================================ -->
+        <!-- SLIDE 1 - INTRO -->
+        <!-- ============================================ -->
+        <section class="slide slide-intro" id="intro" data-slide="0">
+            <video class="video-background" autoplay muted loop playsinline>
+                <source src="assets/videos/video1.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h1 class="main-title" data-translate="intro.title">EXPERIENCE</h1>
+                <p class="subtitle" data-translate="intro.subtitle">KITE & WING RETREATS</p>
+                <p class="slogan" data-translate="intro.slogan">Where the Sea Meets the Soul</p>
+            </div>
+            <div class="scroll-indicator">
+                <img src="assets/images/icons/arrow-down.svg" alt="Scroll">
+                <span data-translate="scroll">Scroll</span>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 2 - L'ALMANARRE -->
+        <!-- ============================================ -->
+        <section class="slide slide-almanarre" id="almanarre" data-slide="1">
+            <video class="video-background" autoplay muted loop playsinline>
+                <source src="assets/videos/video1.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="section-title" data-translate="almanarre.title">Le Hawaï du Vent</h2>
+                <p class="section-subtitle" data-translate="almanarre.subtitle">Plus de 200 jours de vent par an</p>
+                <div class="description">
+                    <p data-translate="almanarre.description">
+                        L'Almanarre, située sur la presqu'île de Giens, est l'un des spots de kitesurf et wingfoil les plus réputés d'Europe. 
+                        Avec son vent thermique constant, ses eaux turquoise et son cadre paradisiaque, 
+                        c'est le lieu idéal pour vivre une expérience inoubliable entre sport et détente.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 3 - LES FORMULES -->
+        <!-- ============================================ -->
+        <section class="slide slide-formules" id="formules" data-slide="2">
+            <video class="video-background" autoplay muted loop playsinline>
+                <source src="assets/videos/video2.mp4" type="video/mp4">
+            </video>
+            <div class="overlay overlay-dark"></div>
+            <div class="slide-content">
+                <h2 class="section-title" data-translate="formules.title">Nos Formules</h2>
+                
+                <div class="formules-grid">
+                    
+                    <!-- CARD SÉJOUR PREMIUM -->
+                    <div class="formule-card card-premium">
+                        <div class="card-header">
+                            <h3 data-translate="formules.premium.title">Séjour Premium</h3>
+                            <p class="card-subtitle" data-translate="formules.premium.subtitle">Une semaine d'exception</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="features-list">
+                                <li data-translate="formules.premium.feature1">Villa luxueuse avec vue mer</li>
+                                <li data-translate="formules.premium.feature2">Chef à domicile</li>
+                                <li data-translate="formules.premium.feature3">Coaching kite & wingfoil</li>
+                                <li data-translate="formules.premium.feature4">Sessions yoga</li>
+                                <li data-translate="formules.premium.feature5">Relaxation SPA</li>
+                                <li data-translate="formules.premium.feature6">Excursions vélo & rando</li>
+                            </ul>
+                            <p class="max-participants" data-translate="formules.premium.max">Max. 12 personnes</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" data-modal="premium" data-translate="formules.premium.btn">En savoir +</button>
+                        </div>
+                    </div>
+
+                    <!-- CARD PRIVATISATION -->
+                    <div class="formule-card card-privatisation">
+                        <div class="card-header">
+                            <h3 data-translate="formules.privatisation.title">Privatisation</h3>
+                            <p class="card-subtitle" data-translate="formules.privatisation.subtitle">Groupes & Séminaires</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="privatisation-text" data-translate="formules.privatisation.description">
+                                Créez votre expérience sur-mesure pour votre groupe ou votre entreprise. 
+                                Team building, séminaire incentive, ou simplement entre amis : 
+                                nous personnalisons chaque détail selon vos envies.
+                            </p>
+                            <p class="devis-info" data-translate="formules.privatisation.devis">Sur devis personnalisé</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary" data-contact="true" data-translate="formules.privatisation.btn">Demander un devis</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 4 - CARTE EUROPE / PROXIMITÉ -->
+        <!-- ============================================ -->
+        <section class="slide slide-map" id="proximite" data-slide="3">
+            <div class="slide-content">
+                <h2 class="section-title" data-translate="map.title">À Quelques Heures de Vol</h2>
+                <p class="section-subtitle" data-translate="map.subtitle">Accessible depuis toute l'Europe</p>
+                
+                <div class="map-container">
+                    <img src="assets/images/map/europe-map.svg" alt="Carte d'Europe" id="europeMapImage">
+                    <svg id="europeMap" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Les marqueurs et trajets seront ajoutés par JS -->
+                    </svg>
+                </div>
+
+                <div class="cities-list">
+                    <span class="city">Paris</span>
+                    <span class="city">Londres</span>
+                    <span class="city">Bruxelles</span>
+                    <span class="city">Amsterdam</span>
+                    <span class="city">Berlin</span>
+                    <span class="city">Genève</span>
+                    <span class="city">Madrid</span>
+                    <span class="city">Barcelone</span>
+                    <span class="city">Rome</span>
+                    <span class="city">Lisbonne</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 5 - CONTACT -->
+        <!-- ============================================ -->
+        <section class="slide slide-contact" id="contact" data-slide="4">
+            <div class="slide-content">
+                <h2 class="section-title" data-translate="contact.title">Parlez-nous de Vous</h2>
+                <p class="section-subtitle" data-translate="contact.subtitle">Rejoignez l'expérience</p>
+                
+                <div class="contact-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prenom" data-translate="contact.form.firstname">Prénom</label>
+                                <input type="text" id="prenom" name="prenom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nom" data-translate="contact.form.lastname">Nom</label>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" data-translate="contact.form.email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone" data-translate="contact.form.phone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="niveau" data-translate="contact.form.level">Niveau en kite/wing</label>
+                            <select id="niveau" name="niveau" required>
+                                <option value="" data-translate="contact.form.level.select">Sélectionnez...</option>
+                                <option value="debutant" data-translate="contact.form.level.beginner">Débutant</option>
+                                <option value="intermediaire" data-translate="contact.form.level.intermediate">Intermédiaire</option>
+                                <option value="avance" data-translate="contact.form.level.advanced">Avancé</option>
+                                <option value="expert" data-translate="contact.form.level.expert">Expert</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-translate="contact.form.message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="rgpd" name="rgpd" required>
+                            <label for="rgpd" data-translate="contact.form.rgpd">
+                                J'accepte que mes données soient utilisées pour me recontacter
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" data-translate="contact.form.submit">Envoyer</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <img src="assets/images/icons/phone.svg" alt="Téléphone">
+                            <a href="tel:+33610980477">06 10 98 04 77</a>
+                        </div>
+                        <div class="info-item">
+                            <img src="assets/images/icons/email.svg" alt="Email">
+                            <a href="mailto:romainpeyre2001@yahoo.fr">romainpeyre2001@yahoo.fr</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a href="pages/mentions-legales.html" data-translate="footer.legal">Mentions Légales</a>
+                        <span class="separator">|</span>
+                        <a href="pages/cgv.html" data-translate="footer.cgv">CGV</a>
+                        <span class="separator">|</span>
+                        <a href="pages/politique-confidentialite.html" data-translate="footer.privacy">Politique de Confidentialité</a>
+                    </div>
+                    <p class="copyright" data-translate="footer.copyright">© 2025 Experience Kite & Wing Retreats - Tous droits réservés</p>
+                </div>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- INDICATEURS DE NAVIGATION (DOTS) -->
+    <div class="slide-dots">
+        <div class="dot" data-slide="0" title="Intro"></div>
+        <div class="dot" data-slide="1" title="L'Almanarre"></div>
+        <div class="dot" data-slide="2" title="Formules"></div>
+        <div class="dot" data-slide="3" title="Proximité"></div>
+        <div class="dot" data-slide="4" title="Contact"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MODAL DÉTAILS SÉJOUR PREMIUM -->
+    <!-- ============================================ -->
+    <div class="modal" id="modalPremium">
+        <div class="modal-overlay" data-close-modal="true"></div>
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal="true">&times;</button>
+            
+            <h2 data-translate="modal.premium.title">Séjour Premium</h2>
+            <p class="modal-subtitle" data-translate="modal.premium.subtitle">Une semaine tout compris dans un cadre d'exception</p>
+
+            <!-- Galerie d'images -->
+            <div class="modal-gallery">
+                <img src="assets/images/slides/image1.jpg" alt="Villa luxueuse">
+                <img src="assets/images/slides/image2.jpg" alt="Kite session">
+                <img src="assets/images/slides/image3.jpg" alt="Chef cuisine">
+                <img src="assets/images/slides/image4.jpg" alt="Yoga">
+                <img src="assets/images/slides/image5.jpg" alt="Excursion">
+            </div>
+
+            <!-- Détails du séjour -->
+            <div class="modal-details">
+                <h3 data-translate="modal.premium.included.title">Ce qui est inclus</h3>
+                <ul class="included-list">
+                    <li data-translate="modal.premium.included.1">Hébergement en villa luxueuse avec vue mer</li>
+                    <li data-translate="modal.premium.included.2">Prise en charge complète dès votre arrivée (aéroport/gare Hyères)</li>
+                    <li data-translate="modal.premium.included.3">Chef à domicile pour tous les repas</li>
+                    <li data-translate="modal.premium.included.4">Navigation en autonomie avec matériel mis à disposition</li>
+                    <li data-translate="modal.premium.included.5">Coaching personnalisé kitesurf & wingfoil</li>
+                    <li data-translate="modal.premium.included.6">3 sessions de yoga</li>
+                    <li data-translate="modal.premium.included.7">Coaching développement personnel</li>
+                    <li data-translate="modal.premium.included.8">Demi-journée relaxation SPA</li>
+                    <li data-translate="modal.premium.included.9">Journée vélo à Porquerolles</li>
+                    <li data-translate="modal.premium.included.10">Randonnées dans les plus beaux spots de la région</li>
+                    <li data-translate="modal.premium.included.11">Photographe professionnel</li>
+                    <li data-translate="modal.premium.included.12">Logistique complète sur zone</li>
+                </ul>
+
+                <h3 data-translate="modal.premium.options.title">Options disponibles</h3>
+                <ul class="options-list">
+                    <li data-translate="modal.premium.options.1">Cours supplémentaires de kite/wing (tarifs préférentiels)</li>
+                    <li data-translate="modal.premium.options.2">Location de matériel (pack ou élément isolé)</li>
+                    <li data-translate="modal.premium.options.3">Séances ostéopathe</li>
+                </ul>
+
+                <div class="price-section">
+                    <p class="price-label" data-translate="modal.premium.price.label">À partir de</p>
+                    <p class="price">2 490€</p>
+                    <p class="price-info" data-translate="modal.premium.price.info">par personne / semaine</p>
+                </div>
+
+                <div class="dates-section">
+                    <h3 data-translate="modal.premium.dates.title">Dates disponibles</h3>
+                    <div id="datesContainer" class="dates-list">
+                        <!-- Les dates seront chargées depuis retreats.json -->
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-large" data-contact="true" data-translate="modal.premium.btn">Réserver maintenant</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/video-background.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/disable-slider.js"></script>
+
+</body>
+</html>
